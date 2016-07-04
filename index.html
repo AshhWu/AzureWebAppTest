@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '697186787086383',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+	FB.getLoginStatis(function(response){
+	  	if(response.status==='connected')
+	  		getElementById('status').innerHTML='We are connected.';
+	  	else if(response.status==='not_authorized'){
+  			getElementById('status').innerHTML='not logged in.';
+  			}
+		});
+
+  
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<button id="fb-login">Login to Facebook</button>
+<div id="fb-root"></div>
+<div id="userdata"></div>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+</body>
+</html>
